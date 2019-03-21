@@ -1,3 +1,31 @@
-h1 {
-	color: red;
+@import url('https://fonts.googleapis.com/css?family=Sniglet');
+
+html {
+	background: linear-gradient(
+	60deg,
+    #f29e30,
+    #fff58e
+    ) fixed;
+}
+
+p, h1, h3, button {
+	font-family: "Sniglet", serif;
+	text-align: center;
+}
+
+#box-1 {
+    background-color: #f9f986;
+    width: 60%;
+    height: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    padding: 40px 0px 40px 0px;
+    border-radius: 30em;
+    text-align: center;
+}
+
+.button-2 {
+	text-align: center;
 }
