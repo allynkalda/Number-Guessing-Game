@@ -9,7 +9,7 @@ function startGame() {
 var userInput = document.getElementById("number").value; // Get user's guess
 
 allNumbers.push(userInput);
-// Check if there is no number or too big
+// Check if there is no number or number is too big
 
 if (userInput == "") {
 	alert("Type a number!");
@@ -20,9 +20,8 @@ if (userInput == "") {
 }
 
 // Comparison
+	
 function bigOrSmall() {
-
-
 
 	if (userInput == random) {
 		document.getElementById("demo").innerHTML = "YOU WON! Congratulations.";
