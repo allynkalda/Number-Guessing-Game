@@ -1,11 +1,14 @@
 // Generate random secret number
 var random = Math.floor((Math.random() * 20) + 1);
 var numGuess = 0;
+var allNumbers = [];
 
 function startGame() {
 
+
 var userInput = document.getElementById("number").value; // Get user's guess
 
+allNumbers.push(userInput);
 // Check if there is no number or too big
 
 if (userInput == "") {
@@ -17,25 +20,42 @@ if (userInput == "") {
 }
 
 // Comparison
-
 function bigOrSmall() {
+
+
+
 	if (userInput == random) {
 		document.getElementById("demo").innerHTML = "YOU WON! Congratulations.";
 		location.reload();
 	} else if (userInput < random) {
 		document.getElementById("demo").innerHTML = "This is smaller than the secret number! Try again.";
 		//document.getElementById("number").value = "";
-		numGuess += 1;
+		
+		checkSameNum()
+
 		guessInfo();
 		document.getElementById("guesses").innerHTML = "Guess Count: " + numGuess;
 	} else if (userInput > random) {
 		document.getElementById("demo").innerHTML = "This is bigger than the secret number! Try again.";
 		//document.getElementById("number").value = "";
-		numGuess += 1;
+		checkSameNum()
+
+
 		guessInfo();
 		document.getElementById("guesses").innerHTML = "Guess Count: " + numGuess;
+
+// Check if the number is the same inputted multiple times consecutively.
+
+function checkSameNum() {
+	if (userInput == allNumbers[1]) {
+			numGuess += 0;
+	} else {
+			numGuess += 1; } 
 	}
 
+	}
+
+// Information on number of guesses and reload when guesses exceed 10
 function guessInfo() {
 	switch(numGuess) {
 		case 5:
@@ -56,7 +76,3 @@ function guessInfo() {
 		}
 	}
 }
-console.log(random);
-
-
-
