@@ -6,14 +6,19 @@
    type = "text/css"
    href = "stylesheet.css" />
 
+<div id="box-1">
+
 <h1>Guess the Secret Number!</h1>
 <p>Type a number from 1 to 20.</p>
 <input type="text" id="number" >
 </br>
-<button onclick="startGame()">Guess now!</button>
+<button id="button-1" onclick="startGame()">Guess now!</button>
+<button id="button-2" onclick="location.reload()">Restart!</button>
 <h3 id="demo"></h3>
 <p id="guesses"></p>
 <p id="left"></p>
+
+</div>
 
 <script src="script.js">
 </script>
