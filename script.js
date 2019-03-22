@@ -9,7 +9,7 @@ console.log(random);
 function startGame() {
 
 
-var userInput = document.getElementById("number").value; // Get user's guess
+var userInput = +document.getElementById("number").value; // Get user's guess
 
 
 allNumbers.unshift(userInput);
@@ -37,13 +37,14 @@ function checkSameNum() {
 
 
 	if (userInput == random) {
-		document.getElementById("demo").innerHTML = "YOU WON! Congratulations.";
+		document.getElementById("demo").innerHTML = "YOU GUESSED IT RIGHT! Congratulations.";
 		document.getElementById("button-1").style.display = "none";
 		document.getElementById("button-2").style.display = "inline";
+	//	document.getElementById("button").onclick = location.reload();
 		
 	} else if (userInput < random) {
 		checkSameNum();
-		document.getElementById("demo").innerHTML = "This is smaller than the secret number! Try again.";
+		document.getElementById("demo").innerHTML = "It should be bigger! Try again.";
 		//document.getElementById("number").value = "";
 		
 	
@@ -51,11 +52,13 @@ function checkSameNum() {
 		document.getElementById("guesses").innerHTML = "Guess Count: " + numGuess;
 	} else if (userInput > random) {
 		checkSameNum();
-		document.getElementById("demo").innerHTML = "This is bigger than the secret number! Try again.";
+		document.getElementById("demo").innerHTML = "It should be smaller! Try again.";
 		//document.getElementById("number").value = "";
 
 		guessInfo();
 		document.getElementById("guesses").innerHTML = "Guess Count: " + numGuess;
+
+
 
 	}
 
