@@ -13,9 +13,9 @@ var userInput = document.getElementById("number").value; // Get user's guess
 
 
 allNumbers.unshift(userInput);
-// Check if there is no number or too big
+// Check if there is no number or too big or not a number
 
-if (userInput == "") {
+if (userInput == "" || typeof userInput !== "number") {
 	alert("Type a number!");
 } else if (userInput > 20) {
 	alert("Number is too big!");
@@ -57,8 +57,6 @@ function checkSameNum() {
 
 		guessInfo();
 		document.getElementById("guesses").innerHTML = "Guess Count: " + numGuess;
-
-
 
 	}
 
