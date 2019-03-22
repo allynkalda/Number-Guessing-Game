@@ -40,7 +40,6 @@ function checkSameNum() {
 		document.getElementById("demo").innerHTML = "YOU WON! Congratulations.";
 		document.getElementById("button-1").style.display = "none";
 		document.getElementById("button-2").style.display = "inline";
-	//	document.getElementById("button").onclick = location.reload();
 		
 	} else if (userInput < random) {
 		checkSameNum();
