@@ -32,7 +32,7 @@ function checkSameNum() {
 	if (userInput == allNumbers[1]) {
 			numGuess += 0;
 	} else {
-			numGuess += 1; }
+			numGuess++; }
 	}
 
 
