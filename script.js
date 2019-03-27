@@ -20,7 +20,7 @@ function start() {
 		// Push each letter into an array
 		for (var i = 0; i < word.length; i++) {
 			wordArray.push(word[i]);
-		// Visualize the letters of the words
+		// Visualize the blanks of the letters
 			var h = document.createElement("li");
 			h.setAttribute("id", i);              
 			var t = document.createTextNode("_"); 
@@ -37,10 +37,13 @@ function start() {
 // Receives letter input from player
 var counter = 0;
 var lettersGuessed = 0;
+var photo = 0;
 
 function guess(input) {
 	counter++;
 	var input;
+	var hangs = 0;
+	
 	
 	// Print number of guesses in counter var
 		document.getElementById("numOfGuesses").innerHTML = "Guess Count: " + counter;
@@ -54,11 +57,14 @@ function guess(input) {
 				modified.textContent = word[j];
 
 				lettersGuessed++;
-			} else {
+			} else {				
+				hangs++;
 				console.log("nope");
-		
 			}
+
 		}
+
+	hangMan();
 	// Detects if the player won
 	if (lettersGuessed == word.length) {
 		document.getElementById("numOfGuesses").innerHTML = "You won!";
@@ -66,12 +72,33 @@ function guess(input) {
 	console.log(input);
 	console.log(counter);
 	console.log(lettersGuessed);
-}
+	console.log(hangs);
+//
 
-function counter() {
-	if (counter <= 7) {
-// continue with guess()
-	} else {
 
+
+
+function hangMan() {
+
+
+
+
+	if (hangs == word.length) {
+		photo++;
+
+		//for (var k = 0; k <= photo; k++) {
+		//console.log("To the gallows!");
+		var head = document.querySelector("tr");
+		var visual = document.createElement("td");
+		visual.setAttribute("id", photo);              
+		var q = document.createTextNode("*"); 
+		visual.appendChild(q);
+		document.getElementById("hang").appendChild(visual);
+			//visual.insertBefore(visual, head);
+		
+		
+		//}
 	}
+	
+}
 }
