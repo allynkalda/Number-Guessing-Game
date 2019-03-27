@@ -1,64 +1,24 @@
 <!DOCTYPE html>
 <html>
-<title>Hangman</title>
 <body>
 
  <link rel = "stylesheet"
    type = "text/css"
    href = "stylesheet.css" />
 
-<table>
-  <tr id="hang">
-  </tr>
-</table>
+<div id="box-1">
 
-<ul id="showLetter"></ul>
+<h1>Guess the Secret Number!</h1>
+<p>Type a number from 1 to 20.</p>
+<input type="text" id="number" >
+</br>
+<button id="button-1" onclick="startGame()">Guess now!</button>
+<button id="button-2" onclick="location.reload()">Restart!</button>
+<h3 id="demo"></h3>
+<p id="guesses"></p>
+<p id="left"></p>
 
-
-<button id="button" onclick="start()">Start</button>
-<p id="numOfGuesses"></p>
-<table style="width:30%">
-  <tr>
-    <td><button class="letter" onclick="guess(this.value)" value="a">A</button></td>
-    <td><button class="letter" onclick="guess(this.value)" value="b">B</button></td> 
-    <td><button class="letter" onclick="guess(this.value)" value="c">C</button></td>
-    <td><button class="letter" onclick="guess(this.value)" value="d">D</button></td>
-    <td><button class="letter" onclick="guess(this.value)" value="e">E</button></td>
-    <td><button class="letter" onclick="guess(this.value)" value="f">F</button></td>
-  </tr>
-  <tr>
-    <td><button class="letter" onclick="guess(this.value)" value="g">G</button></td>
-    <td><button class="letter" onclick="guess(this.value)" value="h">H</button></td> 
-    <td><button class="letter" onclick="guess(this.value)" value="i">I</button></td>
-    <td><button class="letter" onclick="guess(this.value)" value="j">J</button></td>
-    <td><button class="letter" onclick="guess(this.value)" value="k">K</button></td>
-    <td><button class="letter" onclick="guess(this.value)" value="l">L</button></td>
-  </tr>
-  <tr>
-    <td><button class="letter" onclick="guess(this.value)" value="m">M</button></td>
-    <td><button class="letter" onclick="guess(this.value)" value="n">N</button></td> 
-    <td><button class="letter" onclick="guess(this.value)" value="o">O</button></td>
-    <td><button class="letter" onclick="guess(this.value)" value="p">P</button></td>
-    <td><button class="letter" onclick="guess(this.value)" value="q">Q</button></td>
-    <td><button class="letter" onclick="guess(this.value)" value="r">R</button></td>
-  </tr>
-    <tr>
-    <td><button class="letter" onclick="guess(this.value)" value="s">S</button></td>
-    <td><button class="letter" onclick="guess(this.value)" value="t">T</button></td> 
-    <td><button class="letter" onclick="guess(this.value)" value="u">U</button></td>
-    <td><button class="letter" onclick="guess(this.value)" value="v">V</button></td>
-    <td><button class="letter" onclick="guess(this.value)" value="w">W</button></td>
-    <td><button class="letter" onclick="guess(this.value)" value="x">X</button></td>
-  </tr>
-    <tr>
-    <td></td>
-    <td></td> 
-    <td><button class="letter" onclick="guess(this.value)" value="y">Y</button></td>
-    <td><button class="letter" onclick="guess(this.value)" value="z">Z</button></td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
+</div>
 
 <script src="script.js">
 </script>
