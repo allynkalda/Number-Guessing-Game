@@ -1,85 +1,77 @@
-// Generate random secret number
-var random = Math.floor((Math.random() * 20) + 1);
-var numGuess = 0;
-var allNumbers = [];
+// Create random word generator
+var wordArray = [];
+var randomWords = [ "awkward", "bagpipes", "banjo", "bungler", "croquet", "crypt", "Dwarves", "fervid", "fishhook", "fjord", "gazebo", "gypsy", "haiku", "haphazard", "hyphen", "Ivory", "jazzy", "jiffy", "jinx", "jukebox", "kayak", "memento", "oxygen", "pajama", "Pixel", "zombie", "tomato", "shark", "elephant", "island",]
 
-document.getElementById("button-2").style.display = "none";
+var number = Math.floor((Math.random() * 29) + 1);
+var word = randomWords[number];
+// Start function picks random word
 
-console.log(random);
-function startGame() {
+function start() {
+	length();
+// Hides start button once clicked
+	document.getElementById("button").style.visibility = "hidden";
+// Calculates length of word
+
+	function length() { 
+		var printLetter = word.length;
+		// Prints out number of letters
+		console.log(printLetter);
+		var parent = document.querySelector("ul");
+		// Push each letter into an array
+		for (var i = 0; i < word.length; i++) {
+			wordArray.push(word[i]);
+		// Visualize the letters of the words
+			var h = document.createElement("li");
+			h.setAttribute("id", i);              
+			var t = document.createTextNode("_"); 
+			h.appendChild(t);
+			document.body.insertBefore(h, parent);
+		}
+		console.log(wordArray);
+	}
 
 
-var userInput = +document.getElementById("number").value; // Get user's guess
-
-
-allNumbers.unshift(userInput);
-// Check if there is no number or too big or not a number
-
-if (userInput == "") {
-	alert("Type a number!");
-} else if (userInput > 20) {
-	alert("Number is too big!");
-} else {
-	bigOrSmall();
 }
 
-// Comparison
-function bigOrSmall() {
 
-// Check if the number is the same inputted multiple times consecutively.
-function checkSameNum() {
+// Receives letter input from player
+var counter = 0;
+var lettersGuessed = 0;
 
-	if (userInput == allNumbers[1]) {
-			numGuess += 0;
-	} else {
-			numGuess++; }
-	}
-
-
-	if (userInput == random) {
-		document.getElementById("demo").innerHTML = "YOU GUESSED IT RIGHT! Congratulations.";
-		document.getElementById("button-1").style.display = "none";
-		document.getElementById("button-2").style.display = "inline";
-	//	document.getElementById("button").onclick = location.reload();
-		
-	} else if (userInput < random) {
-		checkSameNum();
-		document.getElementById("demo").innerHTML = "It should be bigger! Try again.";
-		//document.getElementById("number").value = "";
-		
+function guess(input) {
+	counter++;
+	var input;
 	
-		guessInfo();
-		document.getElementById("guesses").innerHTML = "Guess Count: " + numGuess;
-	} else if (userInput > random) {
-		checkSameNum();
-		document.getElementById("demo").innerHTML = "It should be smaller! Try again.";
-		//document.getElementById("number").value = "";
+	// Print number of guesses in counter var
+		document.getElementById("numOfGuesses").innerHTML = "Guess Count: " + counter;
 
-		guessInfo();
-		document.getElementById("guesses").innerHTML = "Guess Count: " + numGuess;
+		// Loop if input letter is same as letters in array
+		for (var j = 0; j < word.length; j++) {
+			if (input == word[j]) {
 
+				// Change appended list to show letter
+				var modified = document.getElementById(j);
+				modified.textContent = word[j];
 
-
-	}
-
-// Information on number of guesses and reload when guesses exceed 10
-function guessInfo() {
-	switch(numGuess) {
-		case 5:
-		document.getElementById("left").innerHTML = "You've only got 5 more guesses to go!";
-		break;
-		case 6:
-		document.getElementById("left").style.display = "none";
-		break;
-		case 10:
-		document.getElementById("demo").innerHTML = "You ran out of guesses! Try again.";
-		break;
-		case 11:
-		document.getElementById("left").style.display = "none";
-		document.getElementById("demo").style.display = "none";
-		document.getElementById("guesses").style.display = "none";
-		location.reload();
+				lettersGuessed++;
+			} else {
+				console.log("nope");
+		
 			}
 		}
+	// Detects if the player won
+	if (lettersGuessed == word.length) {
+		document.getElementById("numOfGuesses").innerHTML = "You won!";
+	}
+	console.log(input);
+	console.log(counter);
+	console.log(lettersGuessed);
+}
+
+function counter() {
+	if (counter <= 7) {
+// continue with guess()
+	} else {
+
 	}
 }
